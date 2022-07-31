@@ -1,10 +1,8 @@
 install.packages("pacman", repos = "http://cran.us.r-project.org")
 pacman::p_load(tidyverse, writexl, jsonlite)
 
-#library(tidyverse)
-#library(writexl)
 
-ads <- map(paste0("search.json"), fromJSON)
+ads <- map(paste0("tests/search.json"), fromJSON)
 data_raw <- pluck(ads,1, "productSearchResult")
 data <- pluck(data_raw, "products")
 
@@ -36,5 +34,5 @@ for (i in 1:nrow(data_f)) {
 }
 data_f <- cbind(data_f, images)
 
-write.csv(data_f, file='src/JW_vinmon.csv')
+write.csv(data_f, file='test/search.csv')
 
