@@ -28,10 +28,10 @@ jobs:
         run : sudo apt install libcurl4-openssl-dev libssl-dev libxml2-dev
 
       - name: Install R packages and transform json data to csv file using R
-        run: sudo Rscript scripts/transform_data.R
+        run: sudo Rscript tests/transform_data.R
         
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
           name: transformed_csv
-          path: test/search.csv'
+          path: tests/search.csv'
